@@ -26,3 +26,5 @@ if __name__ == "__main__":
 
 
 # server is active engine
+
+# this is second one ok na , i will erase it tomarrow
