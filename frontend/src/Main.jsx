@@ -7,13 +7,13 @@ const Main = () => {
 
     const[messages,setMessages] = useState([]);
     const[input,setInput] = useState('');
-    const [userId] = userState('user-'+ Math.random().toString(36).substring(7));
+    const [userId] = useState('user-'+ Math.random().toString(36).substring(7));
 
     const sendMessage = async()=>{
         if(!input.trim()) return;
         const userMsg = input;
 
-        setMessage([...messages,{text:userMsg,sender:'user'}]);
+        setMessages([...messages,{text:userMsg,sender:'user'}]);
         setInput('');
 
 
