@@ -1,0 +1,9 @@
+# gateway/Dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+ENV AI_SERVICE_HOST=ai-service
+ENV AI_SERVICE_PORT=50051
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
