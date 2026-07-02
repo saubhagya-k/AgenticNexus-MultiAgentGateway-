@@ -2,8 +2,9 @@
   "name": "frontend",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "parcel index.html",
+  "build": "parcel build index.html --dist-dir dist"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
