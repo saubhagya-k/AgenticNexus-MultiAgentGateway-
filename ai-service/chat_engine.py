@@ -7,7 +7,7 @@ from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph.message import add_messages
 
-# Load environment variables (GOOGLE_API_KEY must be set)
+# Load environment variables (GEMINI_API_KEY must be set)
 load_dotenv()
 
 # 1. Initialize the Gemini model
@@ -26,6 +26,9 @@ def chat_node(state: BotAiState):
 # 4. Build and compile the graph with MemorySaver
 graph = StateGraph(BotAiState)
 graph.add_node("chat_node", chat_node)
+
+# adding edge now 
+
 graph.add_edge(START, "chat_node")
 graph.add_edge("chat_node", END)
 

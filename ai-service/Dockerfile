@@ -4,6 +4,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-ENV GOOGLE_API_KEY=your_key_here   
+ENV GEMINI_API_KEY=your_key_here   
 # Better: pass via .env or Docker secrets
 CMD ["python", "ai_service.py"]

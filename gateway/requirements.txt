@@ -3,3 +3,4 @@ uvicorn
 grpcio
 pydantic
 python-dotenv
+protobuf  

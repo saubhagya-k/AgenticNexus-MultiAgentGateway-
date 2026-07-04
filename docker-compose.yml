@@ -6,7 +6,8 @@ services:
     ports:
       - "50051:50051"   # Optional: expose for debugging
     environment:
-      - GOOGLE_API_KEY=${GOOGLE_API_KEY}  # From .env file
+      - GEMINI_API_KEY=${GEMINI_API_KEY}  # From .env file
+      - PYTHONUNBUFFERED=1 
     networks:
       - app-network
 

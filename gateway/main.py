@@ -40,9 +40,10 @@ async def chat(request: ChatRequest):
         grpc_response = AI_STUB.Chat(grpc_request)
         return ChatResponse(response=grpc_response.response)
     except grpc.RpcError as e:
+        print(f"gRPC error: code={e.code()}, details={e.details()}, debug={e.debug_error_string()}")
         raise HTTPException(status_code=503, detail=f"gRPC error: {e.details()}")
 
-# Optional root
-@app.get("/")
-def root():
-    return {"message": "Gateway is running"}
+# # Optional root
+# @app.get("/")
+# def root():
+#     return {"message": "Gateway is running"}
