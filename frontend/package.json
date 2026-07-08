@@ -2,9 +2,9 @@
   "name": "frontend",
   "version": "1.0.0",
   "scripts": {
-  "start": "parcel index.html",
-  "build": "parcel build src/index.html --dist-dir dist"
-},
+    "start": "parcel index.html",
+    "build": "parcel build src/index.html --dist-dir dist"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,7 +15,10 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.2",
     "buffer": "^6.0.3",
-    "parcel": "^2.16.4"
+    "parcel": "^2.16.4",
+    "postcss": "^8.5.16",
+    "tailwindcss": "^4.3.2"
   }
 }
