@@ -1,15 +1,22 @@
-# frontend/Dockerfile
 FROM node:18 AS build
 WORKDIR /app
+
+# Copy package files first
 COPY package*.json ./
-RUN npm install
+
+# Remove lockfile and node_modules (to avoid stale deps)
+RUN rm -rf node_modules package-lock.json
+
+# Install dependencies with verbose logging and rebuild native modules
+RUN npm install --foreground-scripts
+
+# Copy the rest of the source code
 COPY . .
+
+# Build the app
 RUN npm run build
 
-# Serve with Nginx (or use `serve`)
+# Serve with Nginx
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
-# We'll rely on the main Nginx for routing, so this just serves static files.
-# But this container will be on its own network, so the main Nginx will proxy_pass to this container.
 EXPOSE 80
-
